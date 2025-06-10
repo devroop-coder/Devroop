@@ -1,0 +1,279 @@
+/* Basic Reset & Typography */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0E0B16; /* Dark background */
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Header */
+header {
+    background-color: #0E0B16;
+    padding: 20px 0;
+    border-bottom: 1px solid #2C283E;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF; /* Changed to white for better contrast with red logo */
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #E50914; /* Red color on hover/active */
+}
+
+/* Main Content */
+main {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+main .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.left-content {
+    flex: 1;
+    min-width: 400px;
+    padding-right: 50px;
+    z-index: 1;
+}
+
+.left-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #E50914; /* Red color for heading */
+}
+
+.left-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #CCCCCC;
+}
+
+.download-buttons .btn {
+    background-color: #E50914; /* Red button */
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px; 
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.download-buttons .btn:hover {
+    background-color: #FF2E3A; /* Lighter red on hover */
+}
+
+.download-buttons .download-app {
+    width: auto; /* Adjust width as needed */
+    margin-right: 0; /* Remove right margin if it's the only button */
+}
+
+/* Phone Mockup */
+.right-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.new-phone-mockup {
+    width: auto;
+    height: 500px; /* Adjusted to a fixed height for better control, allowing width to scale */
+    max-width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 40px; /* Added back to give a phone-like border */
+    border: 5px solid #FFFFFF; /* Added back for the white phone border */
+}
+
+/* Background Waves (simplified) */
+main::before {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, rgba(255,0,0,0) 70%); /* Red glow */
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+main::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, rgba(255,0,0,0) 70%); /* Red glow */
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-content,
+    .right-content {
+        padding-right: 0;
+        min-width: unset;
+        width: 100%;
+    }
+
+    .left-content h1 {
+        font-size: 36px;
+    }
+
+    .download-buttons {
+        margin-top: 30px;
+    }
+
+    .new-phone-mockup {
+        margin-top: 50px;
+    }
+}
+
+/* Splash Screen Styles */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1A1A1D; /* Dark background matching screenshot */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 50px;
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-dots span {
+    width: 12px;
+    height: 12px;
+    background-color: #E50914; /* Red dots */
+    border-radius: 50%;
+    margin: 0 8px;
+    animation: bounce 0.6s infinite alternate;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #0E0B16; /* Same dark background as body */
+    color: #CCCCCC;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #2C283E; /* Light border at the top */
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+} 
