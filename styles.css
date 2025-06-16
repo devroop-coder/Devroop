@@ -63,8 +63,12 @@ h1 {
 
 .product-showcase {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     perspective: 1000px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .product-card {
@@ -80,6 +84,9 @@ h1 {
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(0);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
 }
 
 .product-card::before {
@@ -336,6 +343,14 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .product-showcase {
+        gap: 1.5rem;
+    }
+    
+    .product-card {
+        min-width: 280px;
+    }
+
     .product-card:hover {
         transform: translateY(-10px) rotateX(3deg) rotateY(2deg);
     }

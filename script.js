@@ -1,15 +1,15 @@
 // Add smooth scroll behavior
 document.addEventListener('DOMContentLoaded', () => {
-    // Add smooth hover effect to product card
-    const productCard = document.querySelector('.product-card');
+    // Add smooth hover effect to all product cards
+    const productCards = document.querySelectorAll('.product-card');
     
-    if (productCard) {
-        productCard.addEventListener('mouseenter', () => {
-            productCard.style.transform = 'translateY(-5px)';
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
         });
         
-        productCard.addEventListener('mouseleave', () => {
-            productCard.style.transform = 'translateY(0)';
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
         });
-    }
+    });
 }); 
