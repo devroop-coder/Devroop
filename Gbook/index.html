@@ -50,8 +50,15 @@
         }
 
         .title {
-            font-size: 3.2rem;
+            font-size: 4rem;
             margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #217fea 40%, #851de6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: -0.03em;
         }
 
         .headline {
@@ -139,11 +146,10 @@
         @media (max-width: 480px) {
             .container {
                 padding: 0.8rem;
+                align-items: center;
             }
-
             .title {
-                font-size: 2rem;
-                margin-bottom: 0.6rem;
+                font-size: 2.1rem;
             }
 
             .headline {
@@ -255,6 +261,7 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 padding: 1.5rem;
+                align-items: center;
             }
             .hero {
                 align-items: center;
@@ -262,6 +269,9 @@
             }
             .app-screenshot {
                 margin: 2rem auto 0 auto;
+            }
+            .title {
+                font-size: 2.7rem;
             }
         }
 
