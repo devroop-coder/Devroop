@@ -3,16 +3,16 @@ function handleChillRedirects() {
     const currentPath = window.location.pathname;
     const currentHash = window.location.hash;
     
-    // Check if path contains /Chill/ or /chill/ followed by any id
-    const chillWithIdMatch = currentPath.match(/\/(chill|Chill)\/(\w+)/i);
-    if (chillWithIdMatch) {
-        const id = chillWithIdMatch[2];
-        // Try to open the app using deep link
-        openAppWithDeepLink(id);
+    // Check if path contains /Chill/ or /chill/ followed by anything
+    const chillWithPathMatch = currentPath.match(/\/(chill|Chill)\/(.+)/i);
+    if (chillWithPathMatch) {
+        const pathAfterChill = chillWithPathMatch[2];
+        // Try to open the app using deep link with the full path
+        openAppWithDeepLink(pathAfterChill);
         return;
     }
     
-    // Check if path is exactly /chill (case-insensitive) without ID
+    // Check if path is exactly /chill (case-insensitive) without anything after
     if (currentPath.toLowerCase() === '/chill' || currentPath.toLowerCase() === '/chill/') {
         window.location.href = '/Chill/';
         return;
@@ -26,9 +26,9 @@ function handleChillRedirects() {
 }
 
 // Function to handle deep linking to the app
-function openAppWithDeepLink(id) {
-    // Construct the deep link URL (adjust the scheme based on your app)
-    const deepLinkUrl = `chill://open?id=${id}`;
+function openAppWithDeepLink(pathAfterChill) {
+    // Construct the deep link URL with the full path
+    const deepLinkUrl = `chill://open/${pathAfterChill}`;
     const fallbackUrl = `/Chill/`;
     
     // Try to open the app
