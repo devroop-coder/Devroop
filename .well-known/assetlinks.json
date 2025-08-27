@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.devroop.chill",
+    "sha256_cert_fingerprints":
+    ["31:65:8F:10:28:02:60:30:77:1F:E2:42:C0:A7:2A:26:B1:9D:6A:58:87:60:73:6A:F3:37:95:A3:8D:F6:1D:2D"]
+  }
+}]
