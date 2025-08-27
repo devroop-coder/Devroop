@@ -1,3 +1,13 @@
 
+# Prevent Jekyll from ignoring .well-known directory
 include:
+  - .well-known
+  - .well-known/assetlinks.json
+
+plugins: []
+markdown: kramdown
+highlighter: rouge
+
+# Ensure .well-known is properly served
+keep_files:
   - .well-known

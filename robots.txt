@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /.well-known/
+Allow: /.well-known/assetlinks.json
+
+Sitemap: https://devroop.studio/sitemap.xml

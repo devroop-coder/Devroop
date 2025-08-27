@@ -1,0 +1,2 @@
+*.json text eol=lf
+.well-known/* text
