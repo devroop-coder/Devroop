@@ -19,7 +19,7 @@
         }
         .spinner {
             border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
+            border-top: 4px solid #e74c3c;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -39,52 +39,52 @@
     </div>
 
     <script>
-        // Get the current path
+       
         const currentPath = window.location.pathname;
         
-        // Check if path contains /chill/ or /Chill/ followed by anything
+      
         const chillWithPathMatch = currentPath.match(/\/(chill|Chill)\/(.+)/i);
         if (chillWithPathMatch) {
             const pathAfterChill = chillWithPathMatch[2];
-            // Try to open the app using deep link
+            
             openAppWithDeepLink(pathAfterChill);
         } else if (currentPath.toLowerCase() === '/chill' || currentPath.toLowerCase() === '/chill/') {
-            // Redirect to /Chill/ for exact matches
+           
             window.location.href = '/Chill/';
         } else {
-            // For any other 404, redirect to home page
+           
             window.location.href = '/';
         }
 
-        // Function to handle deep linking to the app
+        
         function openAppWithDeepLink(pathAfterChill) {
-            // Construct the deep link URL with the full path
+           
             const deepLinkUrl = `chill://open/${pathAfterChill}`;
             const fallbackUrl = `/Chill/`;
             
-            // Try to open the app
+            
             const startTime = Date.now();
             
-            // Create a hidden iframe to attempt the deep link
+          
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
             iframe.src = deepLinkUrl;
             document.body.appendChild(iframe);
             
-            // Set a timeout to check if the app opened
+           
             setTimeout(() => {
-                // If we're still on the page after attempting deep link, redirect back to /Chill/
+                
                 if (Date.now() - startTime < 2000) {
-                    // App likely didn't open, redirect back to /Chill/
+                    
                     window.location.href = fallbackUrl;
                 }
-                // Clean up the iframe
+                
                 if (document.body.contains(iframe)) {
                     document.body.removeChild(iframe);
                 }
             }, 1500);
             
-            // Also try the universal link approach for iOS
+          
             if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
                 window.location.href = deepLinkUrl;
                 setTimeout(() => {
