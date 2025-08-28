@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadButton = document.querySelector('.download-app');
     if (downloadButton) {
         downloadButton.addEventListener('click', () => {
-            window.open('https://firebasestorage.googleapis.com/v0/b/devroop-7c99b.firebasestorage.app/o/Chill%20Reloaded%2FChill%20V1.7.apk?alt=media&token=80f182a5-ae55-4090-a2e0-bd62b2b56ac1', '_blank');
+            window.open('https://firebasestorage.googleapis.com/v0/b/devroop-7c99b.firebasestorage.app/o/Chill%20Reloaded%2FChill%20V1.8.apk?alt=media&token=7dffd43e-bdcf-492a-95ce-526249568f80', '_blank');
         });
     }
 }); 
